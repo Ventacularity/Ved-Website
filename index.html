@@ -4,59 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Website</title>
-    
-    <!-- External CSS file  -->
-    <!-- (this is blank, just setting it up for you in case you want to put css in a different file in the future.-->
+
     <link rel="stylesheet" href="style.css">
-  
 </head>
+
 <body>
 
-      <!-- External sJavaScript file -->
     <script src="./script.js"></script>
-  <!-- (this is blank, just setting it up for you 
-  in case you want to put javascript in a different file, 
-  and include it in this website, in the future.-->
 
-  
-    <h1>Ved Sheth </h1>
-  <h2>pronouns: he/him</h2>
-  <h3> major: EECS </h3>
-    <h4>I'm taking DES INV 23 because it sounds super cool and fun </h4>
-  
+    <!-- THREE COLUMN LAYOUT -->
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
 
-  <div id="fun-fact" style="max-width: 500px; color: #4D693F; background-color: #FFE06B;">
+        <!-- LEFT COLUMN -->
+        <div style="flex: 1;">
 
-    <img style="width: 300px;" src="./spongebob.webp" alt="shadow">
-    fun fact: i like spongebob. 
-  
-  </div>
-    
+            <h1>Ved Sheth </h1>
+            <h2>pronouns: he/him</h2>
+            <h3> major: EECS </h3>
+            <h4>I'm taking DES INV 23 because it sounds super cool and fun </h4>
 
-    <!-- this button is told that, when clicked, it should look for some JavaScript code that has a function called toggleSection() and run that code. -->
-    <button onclick="toggleSection()"> i am a BUTTON! click me to make something happen...</button>
+            <div id="fun-fact" style="max-width: 500px; color: #4D693F; background-color: #FFE06B;">
+                <img style="width: 300px;" src="./spongebob.webp" alt="shadow">
+                fun fact: i like spongebob. 
+            </div>
 
+            <button onclick="toggleSection()">
+                i am a BUTTON! click me to make something happen...
+            </button>
 
-    <div id="secret-fact" style=" max-width: 500px; display: none;">
-          <img style="width: 500px;" src="./ved.webp" alt="scourge_the_hedgehog">
-          <p style="color: green; background-color: lightorange;">
-            Fun Fact: I play table tennis for Cal and TeamUSA. Come to table tennis open play pwease. 🥺
-          </p>
+            <div id="secret-fact" style="max-width: 500px; display: none;">
+                <img style="width: 500px;" src="./ved.webp">
+                <img style="width: 500px;" src="./ved2.webp">
+
+                <p style="color: green; background-color: lightorange;">
+                    Fun Fact: I play table tennis for Cal and TeamUSA. Come to table tennis open play pwease. 🥺
+                </p>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div style="flex: 1;">
+
+            <!-- MASTER HOBBIES BUTTON -->
+            <button onclick="toggleHobbies()">Hobbies</button>
+
+            <!-- HOBBIES GRID (hidden by default) -->
+            <div id="hobbies-section" style="display: none; margin-top: 20px;">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+
+                    <!-- Chess -->
+                    <div>
+                        <button onclick="toggleHobby('chess')">Chess</button>
+                        <div id="chess" style="display: none; margin-top: 10px;">
+                            <p>add me on chess.com</p>
+                            <img style="width: 100%;" src="./chess.webp">
+                        </div>
+                    </div>
+
+                    <!-- Skiing -->
+                    <div>
+                        <button onclick="toggleHobby('skiing')">Skiing</button>
+                        <div id="skiing" style="display: none; margin-top: 10px;">
+                            <p>First time at Tahoe Dec 2025</p>
+                            <img style="width: 100%;" src="./skiing.webp">
+                        </div>
+                    </div>
+
+                    <!-- Hiking -->
+                    <div>
+                        <button onclick="toggleHobby('hiking')">Hiking</button>
+                        <div id="hiking" style="display: none; margin-top: 10px;">
+                            <p>Alta Peak, Sequoia National Park — 11,208 ft elevation</p>
+                            <img style="width: 100%;" src="./hiking.webp">
+                        </div>
+                    </div>
+
+                    <!-- Halo -->
+                    <div>
+                        <button onclick="toggleHobby('halo')">Halo (Netflix)</button>
+                        <div id="halo" style="display: none; margin-top: 10px;">
+                            <p>Started this series last week</p>
+                            <img style="width: 100%;" src="./halo.webp">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
-    
-    <!-- Inline JavaScript example -->
-    <script> //this section is written in JavaScript!
-      //see how the above button says on onclick="toggleSection()"? 
-        function toggleSection() { 
-            const section = document.getElementById('secret-fact'); //go find the section called secret-fact...
-            if (section.style.display === 'none') { //if its not being displayed...
-                section.style.display = 'block'; //turn it on!
-            } else { //otherwise...
-                section.style.display = 'none'; //turn it off.
-            }
+
+    <!-- JavaScript -->
+    <script>
+        function toggleSection() {
+            const section = document.getElementById('secret-fact');
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleHobbies() {
+            const hobbies = document.getElementById('hobbies-section');
+            hobbies.style.display = hobbies.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleHobby(id) {
+            const block = document.getElementById(id);
+            block.style.display = block.style.display === 'none' ? 'block' : 'none';
         }
     </script>
-    
 
 </body>
 </html>
